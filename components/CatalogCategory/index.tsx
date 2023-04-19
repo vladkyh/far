@@ -12,13 +12,34 @@ import Filters from "./Filters";
 
 import styles from "./styles.module.scss";
 import Product from "../Product";
-
+import data from './file.json';
 const CatalogPage = () => {
-  
+  // const router = useRouter();
+  // const  {id}  = router.query;
+  // const [itemData, setItemData] = useState(null)
+  // useEffect(() => {
+  //     const fetchData = async()=>{
+  //       const  {id}  = router.query;
+  //         const withData = data.find((obj) => obj.id === id);
+  //         console.log(id);
+  //         console.log(data[id-1]);
+  //         setItemData(withData)  
+  //         console.log('test');
+          
+  //         //setGetId(id)
+  //         if (!data) {
+  //           return {
+  //             notFound: true,
+  //           }
+  //         }
+  //   }
+  //   fetchData();
+  //   }, [id])
 
   return (
     <>
-     <Product/>
+      ha
+    
     </>
   );
 };

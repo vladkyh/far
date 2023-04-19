@@ -8,6 +8,10 @@ import Layout from "../components/Layout";
 
 import {UserProvider} from "../contexts/userContext";
 
+import { store } from '../store/store';
+
+import {Provider} from 'react-redux';
+
 const MyApp = ({Component, pageProps}: AppProps) => (
   <>
     <Head>
@@ -32,13 +36,18 @@ const MyApp = ({Component, pageProps}: AppProps) => (
     </Head>
 
     <main>
+    <Provider store={store}>
       <UserProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </UserProvider>
+    </Provider>
     </main>
   </>
 );
 
 export default MyApp;
+
+
+

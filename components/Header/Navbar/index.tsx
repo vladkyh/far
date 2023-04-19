@@ -4,6 +4,7 @@ import Link from "next/link";
 import CustomImage from "../../common/CustomImage";
 
 const Navbar = () => {
+
   return (
     <nav className={styles.nav}>
       <ul className={styles.links}>

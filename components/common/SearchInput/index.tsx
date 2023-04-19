@@ -14,7 +14,7 @@ const SearchInput = ({className}: searchInputProps) => (
       className={styles.icon}
     />
 
-    <Input placeholder="Начните вводить название..." className={styles.input} />
+    <Input/>
 
     <Button className={styles.button}>Найти</Button>
   </div>

@@ -33,10 +33,10 @@ type productProps = {
   price: number;
 };
 
-const Product = () => {
+const Product = ({item}) => {
   const {query} = useRouter();
   const [product, setProduct] = useState<productProps>();
-
+  const router = useRouter();
   useEffect(() => {
     getOneDevice(query.product).then((data) => {
       setProduct(data);
@@ -51,55 +51,59 @@ const Product = () => {
         <title>Продукт</title>
       </Head>
 
-      <div>
-        <div className={styles.content}>
-          <div className={styles["image-wrapper"]}>
-            <CustomImage
-              src={`http://localhost:5000/${img}`}
-              alt="MedicineMokkImage"
-              className={styles.medicineImage}
-            />
-
-            <span className={styles.note}>
-              Внешний вид товара может <br /> отличаться от изображенного
-            </span>
-          </div>
-
-          <div className={styles.description}>
-            <div className={styles["busket-block"]}>
-              <div className={styles["title-block"]}>
-                <h3 className={styles.title}>{name}</h3>
-                <div className={styles["pickup-only"]}>Только самовывоз</div>
-              </div>
-
-              <div className={styles["price-block"]}>
-                <div className={styles["price-value"]}>
-                  <div className={styles.price}>{price} ₽</div>
-                  <div className={styles.cashback}>+3 ₽ на карту</div>
-                </div>
-
-                <div className={styles["info-block"]}>
-                  <InfoPopup />
-                  <div className={styles["info-in-stock"]}>В наличии 32 шт</div>
-                </div>
-              </div>
-
-              <Counter className={styles.counter} />
-
-              <Button className={styles["busket-button"]}>В корзину</Button>
+      
+        {item &&
+          <div>
+          <div className={styles.content}>
+            <div className={styles["image-wrapper"]}>
+              <CustomImage
+                src={`/testimg/${item.id}.png`}
+                alt={item.NAME}
+                className={styles.medicineImage}
+              />
+  
+              <span className={styles.note}>
+                Внешний вид товара может <br /> отличаться от изображенного
+              </span>
             </div>
-
-            <Info {...info} />
+  
+            <div className={styles.description}>
+              <div className={styles["busket-block"]}>
+                <div className={styles["title-block"]}>
+                  <h3 className={styles.title}>{item.NAME} пав</h3>
+                  <div className={styles["pickup-only"]}>Только самовывоз</div>
+                </div>
+  
+                <div className={styles["price-block"]}>
+                  <div className={styles["price-value"]}>
+                    <div className={styles.price}>{item.PRICER} ₽</div>
+                    <div className={styles.cashback}>+3 ₽ на карту</div>
+                  </div>
+  
+                  <div className={styles["info-block"]}>
+                    <InfoPopup />
+                    <div className={styles["info-in-stock"]}>В наличии 32 шт</div>
+                  </div>
+                </div>
+  
+                <Counter className={styles.counter} />
+  
+                <Button text={'В корзину'} id={item.id} name={item.NAME} desriptoin={item.desriptoin} />
+              </div>
+  
+              <Info {...info} />
+            </div>
           </div>
+  
+          <div className={styles["stepper-wrapper"]}>
+            <Stepper steps={MOKK_INSTRUCTION} />
+          </div>
+  
+          <Instructions />
+          <Certificates />
         </div>
-
-        <div className={styles["stepper-wrapper"]}>
-          <Stepper steps={MOKK_INSTRUCTION} />
-        </div>
-
-        <Instructions />
-        <Certificates />
-      </div>
+        }
+        
     </>
   );
 };
