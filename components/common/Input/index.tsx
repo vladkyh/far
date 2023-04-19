@@ -32,7 +32,7 @@ const Input = ({
   const [value, setValue] = useState('');
   const [valueTime, setvalueTime] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const allRef = useRef();
+  const allRef = useRef(null);
   const inputRef = useRef();
   const [isRedirecting, setIsRedirecting] = useState(false); // Флаг для отслеживания состояния перехода
   const router = useRouter();
@@ -81,13 +81,15 @@ const Input = ({
     const handleOutsideClick = (event) => {
       if (!allRef.current.contains(event.target)) {
         setValue('');
+        console.log(!allRef.current.contains(event.target));
+        
       }
     };
     document.addEventListener('mousedown', handleOutsideClick);
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
-  }, []);
+  }, [allRef.current]);
 
   // Обработка завершения перехода по ссылке
   useEffect(() => {
