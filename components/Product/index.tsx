@@ -88,7 +88,7 @@ const Product = ({item}) => {
   
                 <Counter className={styles.counter} />
   
-                <Button text={'В корзину'} id={item.id} name={item.NAME} desriptoin={item.desriptoin} />
+                {/* <Button text={'В корзину'} id={item.id} name={item.NAME} desriptoin={item.desriptoin} /> */}
               </div>
   
               <Info {...info} />
