@@ -7,7 +7,27 @@ import testdata from './file.json'
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-const Input = () => {
+
+type inputProps = {
+  placeholder?: string;
+  className?: string;
+  name?: string;
+  valu?: string;
+  type?: string;
+  errorMessage?: string;
+  onChange?: (event: any) => any;
+};
+
+const Input = ({
+  placeholder,
+  name,
+  className,
+  errorMessage,
+  valu,
+  type = "text",
+  onChange,
+  ...props
+}: inputProps) => {
 
   const [value, setValue] = useState('');
   const [valueTime, setvalueTime] = useState('');

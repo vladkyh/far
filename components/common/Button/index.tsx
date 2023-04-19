@@ -5,7 +5,7 @@ import SetCookie from '../../../hooks/setCookie';
 import { useEffect } from 'react';
 import styles from "./styles.module.scss";
 
-const Button = ({text, id, name,desriptoin}) => {
+const Button = ({text, id, name,desriptoin, onClick}) => {
 
     const {items} = useSelector(state => state.card);
     const cardItem = useSelector(state => state.card.items.find(obj => obj.id === id))

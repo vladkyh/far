@@ -78,7 +78,7 @@ const Auth = () => {
             name="email"
             placeholder="Email"
             errorMessage={emailError}
-            value={emailValue}
+            valu={emailValue}
             onChange={(event) => {
               if (emailValue) {
                 setEmailError("");
@@ -90,7 +90,7 @@ const Auth = () => {
             name="password"
             placeholder="Пароль"
             errorMessage={passwordError}
-            value={passwordValue}
+            valu={passwordValue}
             onChange={(event) => {
               if (passwordValue) {
                 setPasswordError("");
@@ -99,9 +99,6 @@ const Auth = () => {
               setPasswordValue(event.target.value);
             }}
           />
-          <Button onClick={handleSubmit}>
-            {isLoginPage ? "Вход" : "Регистрация"}
-          </Button>
         </form>
 
         {isLoginPage ? (
