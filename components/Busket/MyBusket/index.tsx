@@ -59,7 +59,7 @@ const Busket = ({setCurrentStepIndex}) => {
       {product && product.map(({id, name, description, price, count})=>(
 
         
-            <Item id={id} name={name} description={description} price={price} count={count}/>
+            <Item key={id} id={id} name={name} description={description} price={price} count={count}/>
           
         ))
         }

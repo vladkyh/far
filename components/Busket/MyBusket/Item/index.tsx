@@ -21,7 +21,7 @@ const Products = ({id, description, price, name, count}) => {
     <>
     {count?
     
-      <li className={styles.container}>
+      <li  className={styles.container}>
         <div className={styles["pickup-only_mobile"]}>Только самовывоз</div>
         <CustomImage
           src={`/testimg/${id}.png`}
