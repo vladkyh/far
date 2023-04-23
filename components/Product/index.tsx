@@ -1,4 +1,4 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 
 import Head from "next/head";
 import {useRouter} from "next/router";
@@ -18,6 +18,9 @@ import Certificates from "./Certificates";
 
 import styles from "./styles.module.scss";
 import {getOneDevice} from "../../http/deviceAPI";
+import useInput from "../../hooks/useInput";
+import useHover from "../../hooks/useHover";
+import ByButton from "../common/ByButton";
 
 type productProps = {
   img: string;
@@ -34,8 +37,10 @@ type productProps = {
 };
 
 const Product = ({item}) => {
+
   const {query} = useRouter();
   const [product, setProduct] = useState<productProps>();
+
   const router = useRouter();
   useEffect(() => {
     getOneDevice(query.product).then((data) => {
@@ -45,6 +50,7 @@ const Product = ({item}) => {
 
   const {name, img, price, ...info} = product || {};
 
+  
   return (
     <>
       <Head>
@@ -85,12 +91,11 @@ const Product = ({item}) => {
                     <div className={styles["info-in-stock"]}>В наличии 32 шт</div>
                   </div>
                 </div>
-  
-                <Counter className={styles.counter} />
-  
-                {/* <Button text={'В корзину'} id={item.id} name={item.NAME} desriptoin={item.desriptoin} /> */}
+                
+                <ByButton text={'В корзину'} id={item.id} name={item.NAME} desriptoin={item.desriptoin} price={item.price}/>
+                
               </div>
-  
+              
               <Info {...info} />
             </div>
           </div>

@@ -12,7 +12,6 @@ import Filters from "./Filters";
 
 import styles from "./styles.module.scss";
 import Product from "../Product";
-import data from './file.json';
 const CatalogPage = () => {
   // const router = useRouter();
   // const  {id}  = router.query;

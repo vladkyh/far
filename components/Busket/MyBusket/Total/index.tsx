@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import {useRouter} from "next/router";
 
-const Total = ({setCurrentStepIndex}) => {
+const Total = ({setCurrentStepIndex, total}) => {
   const {push} = useRouter();
 
   return (
@@ -28,10 +28,10 @@ const Total = ({setCurrentStepIndex}) => {
 
       <div className={styles["actions-block"]}>
         <div className={styles["total_actions-name"]}>Итого</div>
-        <div className={styles["total_actions-value"]}>1 741 ₽</div>
+        <div className={styles["total_actions-value"]}>{total} ₽</div>
 
         <div className={styles["total-paid_actions-name"]}>Итого к оплате</div>
-        <div className={styles["total-paid_actions-value"]}>1 741 ₽</div>
+        <div className={styles["total-paid_actions-value"]}>{total} ₽</div>
 
         <Button
           className={styles["continue-shopping-button"]}

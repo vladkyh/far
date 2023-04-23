@@ -61,7 +61,7 @@
 
   input {
     width: calc(100% - 98px);
-    padding: 0 24px 0 74px !important;
+    padding: 0 24px 0 34px !important;
   }
 }
 
@@ -150,5 +150,16 @@
 
   .button {
     margin-left: 12px;
+  }
+}
+@media (max-width: 400px) {
+  .container{
+    padding-left: 10px !important;
+  }
+  .list_h2{
+    font-size: 12px;
+  }
+  .li{
+    padding-left: 0;
   }
 }

@@ -19,9 +19,6 @@ const PupularProducts = () => {
     // Загрузка данных (например, из JSON файла или API)
     const fetchData = async () => {
       try {
-        // Вместо testdata, загрузите данные из своего источника (например, API)
-        // const response = await fetch('/api/products');
-        // const data = await response.json();
         const data = testdata
         setItems(data);
         setIsLoading(false);
