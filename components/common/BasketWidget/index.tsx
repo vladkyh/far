@@ -4,12 +4,13 @@ import styles from "./styles.module.scss";
 import {useRouter} from "next/router";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { RootState } from "../../../store/store";
 
 type basketWidgetProps = {className?: string};
 
 const BasketWidget = ({className}: basketWidgetProps) => {
   const {push} = useRouter();
-  const {items, totalPrice} = useSelector(state => state.card);   
+  const {items, totalPrice} = useSelector((state: RootState) => state.card);   
   // общее кол-во товаров и цена
   const [count, setCount] = useState(0)
   const [price, setPrice] = useState(0)

@@ -82,7 +82,7 @@ const Product = ({item}) => {
   
                 <div className={styles["price-block"]}>
                   <div className={styles["price-value"]}>
-                    <div className={styles.price}>{item.PRICER} ₽</div>
+                    <div className={styles.price}>{item.price} ₽</div>
                     <div className={styles.cashback}>+3 ₽ на карту</div>
                   </div>
   

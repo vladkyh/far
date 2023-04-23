@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { clearProduct } from "../../../store/slices/cardSlice";
 import RemoveCookie from "../../../hooks/removeCookie";
+import { RootState } from "../../../store/store";
 
 const MOKK_STEPS = [
   "Моя корзина",
@@ -16,7 +17,7 @@ const MOKK_STEPS = [
 const Busket = ({setCurrentStepIndex}) => {
 
   const dispatch = useDispatch()
-  const {items, totalPrice} = useSelector(state => state.card);
+  const {items, totalPrice} = useSelector((state: RootState) => state.card);
 
   const [count, setCount] = useState(0)
   const [price, setPrice] = useState(1)

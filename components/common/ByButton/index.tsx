@@ -7,11 +7,12 @@ import styles from "./styles.module.css";
 import {cnb} from "cnbuilder";
 import {ReactElement} from "react";
 import Image from 'next/image';
+import { RootState } from '../../../store/store';
 
 const ByButton = ({text, id, name,desriptoin, price}) => {
 
-    const {items} = useSelector(state => state.card);
-    const cardItem = useSelector(state => state.card.items.find(obj => obj.id === id))
+    const { items } = useSelector((state: RootState) => state.card);
+    const cardItem = useSelector((state: RootState) => state.card.items.find(obj => obj.id === id));
     const addedCount = cardItem ? cardItem.count : 0; 
     const dispatch = useDispatch()
     const onCLickAdd = () => {
