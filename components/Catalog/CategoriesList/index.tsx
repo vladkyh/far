@@ -13,6 +13,7 @@ const CategoriesList = () => {
   }, []);
 
   return (
+    
     <ul className={styles["categories-list"]}>
       {categories.map(({name, id}) => (
         <li

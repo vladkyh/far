@@ -11,10 +11,16 @@
   font-size: 20px;
   line-height: 24px;
 }
-
+@media (max-width: 750px) {
+  .container {
+    display: flex;
+    padding: 0 0 70px 0px;
+    overflow: hidden;
+  }
+}
 @media (max-width: 500px) {
   .container {
-    padding: 0 30px 70px 30px;
+    padding: 0 15px 0px 15px;
   }
 
   .title {
