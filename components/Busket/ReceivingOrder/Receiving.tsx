@@ -10,10 +10,6 @@ const Receiving = () => (
       <span className={styles["delivery-option_price"]}>0 ₽</span>
     </div>
 
-    <div className={styles["delivery-option"]}>
-      <Checkbox onChange={() => {}} label="Доставка курьером" />
-      <span className={styles["delivery-option_price"]}>249 ₽</span>
-    </div>
   </div>
 );
 

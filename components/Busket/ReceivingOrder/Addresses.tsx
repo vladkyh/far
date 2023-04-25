@@ -10,6 +10,7 @@ const Addresses = ({currentCoordinates, setMapState}) => (
     <ul className={styles["address-list"]}>
       {MOKK_ADDRESSES.map(
         ({address, name, workingMode, count, coordinates}) => {
+          console.log(address);
           const isActive =
             JSON.stringify(coordinates) === JSON.stringify(currentCoordinates);
 
@@ -29,6 +30,7 @@ const Addresses = ({currentCoordinates, setMapState}) => (
               <Button
                 className={!isActive && styles["outline-button"]}
                 onClick={() =>
+                  
                   setMapState((prevValue) => {
                     return {...prevValue, center: coordinates};
                   })
