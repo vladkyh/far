@@ -5,7 +5,7 @@ type inputProps = {
   placeholder?: string;
   className?: string;
   name?: string;
-  value?: string;
+  valu?: string;
   type?: string;
   errorMessage?: string;
   onChange?: (event: any) => any;
@@ -16,7 +16,7 @@ const Input = ({
   name,
   className,
   errorMessage,
-  value,
+  valu,
   type = "text",
   onChange,
   ...props
@@ -26,7 +26,7 @@ const Input = ({
       type={type}
       placeholder={placeholder}
       name={name}
-      value={value}
+      value={valu}
       onChange={onChange}
       className={styles.input}
       {...props}
