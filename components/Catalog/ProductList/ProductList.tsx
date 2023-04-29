@@ -4,48 +4,48 @@ import AutoSizer from "react-virtualized-auto-sizer";
 import { VariableSizeList as List } from "react-window";
 import Link from 'next/link';
 import testdata from './file.json'
-import search from './testimg/1.png';
-import Image from "next/image";
 import CustomImage from "../../common/CustomImage";
 import InfoPopup from "../../common/ProductCard/InfoPopup";
-import Counter from "../../common/ProductCard/Counter";
-import { FixedSizeGrid as Grid } from 'react-window';
 
-const PupularProducts = () => {
+const PupularProducts = ({category}) => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
     // Загрузка данных (например, из JSON файла или API)
     const fetchData = async () => {
       try {
         const data = testdata
-        setItems(data);
         setIsLoading(false);
+        if (category) {
+          const filteredItems = data.filter(item => item.strana === category);
+          setItems(filteredItems);
+        } else {
+          setItems(data);
+        }
       } catch (error) {
         console.error('Ошибка загрузки данных:', error);
         setIsLoading(false);
       }
     };
     fetchData();
-  }, []);
+  }, [category]);
 
   const getItemSize = index => {
-    // Здесь можно указать высоту элемента с индексом index
     return 493;
   };
 
   const renderListItem = ({ index, style }) => {
     const item = items[index];
-    
+
     return (
       <div
       style={{
         ...style,
-        marginBottom: '50px', // Добавляем отступ между элементами
+        marginBottom: '50px', 
         height: 'auto',
         margin: '100px 0px 100px 0px',
-        // Задаем ширину элемента, чтобы 3 элемента помещались в одном ряду
       }}
       >
         <Link  href={`/catalog/${item.id}`} key={item.id}>
@@ -69,13 +69,8 @@ const PupularProducts = () => {
 
           <div className={styles.helpfull_wrapper}>
             <span className={styles.price}>от 100{item.PRICE} ₽</span>
-
             <InfoPopup />
-
-            {/* {isPurchase && <Counter />} */}
           </div>
-
-          {/* {isPurchase && <Button>В корзину</Button>} */}
         </div>
       </Link>
       </div>

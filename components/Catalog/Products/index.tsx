@@ -9,7 +9,7 @@ import ProductList from "../ProductList";
 
 const data = MOKK_HELPFULL.slice(0, 2);
 
-const Products = () => {
+const Products = ({category}) => {
 
   return (
     <div className={styles.container}>
@@ -18,7 +18,7 @@ const Products = () => {
       </div>
 
       <div className={styles.list}>
-        <ProductList/>
+        <ProductList category={category}/>
       </div>
       
 

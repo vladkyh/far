@@ -1,4 +1,4 @@
-import {useContext, useEffect} from "react";
+import {useContext, useEffect, useState} from "react";
 
 import Head from "next/head";
 import {useRouter} from "next/router";
@@ -13,7 +13,7 @@ import ProductList from "./ProductList";
 
 const CatalogCategory = () => {
   const user = useContext(UserContext);
-
+  const [category, setCategory] = useState("")
   // const {push} = useRouter();
 
   // useEffect(() => {
@@ -32,8 +32,8 @@ const CatalogCategory = () => {
 
       <div className={styles.container}>
         
-        <CategoriesList />
-        <Products />
+        <CategoriesList setCategory={setCategory}/>
+        <Products category={category} />
         
       </div>
     </>

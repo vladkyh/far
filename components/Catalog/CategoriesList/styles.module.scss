@@ -24,12 +24,21 @@
 @media (max-width: 1060px) {
   .categories-list {
     border: none;
-    display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  .categories-list {
+    border: none;
+    margin: 0 0 32px 100px;
+
   }
 }
 
 @media (max-width: 500px) {
   .categories-list {
-    width: 300px;
+    width: auto;
+    margin: 0 0 32px 0;
+    text-align: center;
   }
 }

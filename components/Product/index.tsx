@@ -96,7 +96,7 @@ const Product = ({item}) => {
                 
               </div>
               
-              <Info {...info} />
+              <Info proizvod={item.proizvod} forma={item.forma} sposob={item.sposob} aktiv={item.aktiv} doz={item.doz} strana={item.strana} />
             </div>
           </div>
   
