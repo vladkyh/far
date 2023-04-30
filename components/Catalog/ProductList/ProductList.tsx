@@ -15,9 +15,11 @@ const PupularProducts = ({category}) => {
   useEffect(() => {
     // Загрузка данных (например, из JSON файла или API)
     const fetchData = async () => {
+
       try {
         const data = testdata
         setIsLoading(false);
+
         if (category) {
           const filteredItems = data.filter(item => item.strana === category);
           setItems(filteredItems);
